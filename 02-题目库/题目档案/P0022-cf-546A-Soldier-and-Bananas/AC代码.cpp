@@ -1,9 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
-    int k, n, w;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    long long k, n, w;
     cin >> k >> n >> w;
-    int need = k * w * (w + 1) / 2;
-    cout << max(0, need - n) << "\n";
+
+    long long cost = k * w * (w + 1) / 2;
+    cout << max(0LL, cost - n) << '\n';
+
     return 0;
 }

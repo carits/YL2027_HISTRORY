@@ -1,26 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-int main(){
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int T;
     cin >> T;
-    while(T--){
+    while (T--) {
         int n;
         cin >> n;
-        vector<ll> a(n + 1), s(n + 1);
-        for(int i = 1; i <= n; i++) cin >> a[i], s[i] = s[i - 1] + a[i];
-        ll ans = 0;
-        for(int len = 1; len <= n; len++){
-            if(n % len) continue;
-            ll mn = LLONG_MAX, mx = LLONG_MIN;
-            for(int l = 1; l <= n; l += len){
-                ll cur = s[l + len - 1] - s[l - 1];
-                mn = min(mn, cur);
-                mx = max(mx, cur);
+        vector<long long> a(n);
+
+        for (int i = 0; i < n; i++) cin >> a[i];
+
+        long long ans = 0;
+
+        for (int k = 1; k <= n; k++) {
+            if (n % k != 0) continue;
+
+            long long mn = LLONG_MAX;
+            long long mx = LLONG_MIN;
+
+            for (int l = 0; l < n; l += k) {
+                long long s = 0;
+                for (int i = l; i < l + k; i++) {
+                    s += a[i];
+                }
+                mn = min(mn, s);
+                mx = max(mx, s);
             }
+
             ans = max(ans, mx - mn);
         }
-        cout << ans << "\n";
+
+        cout << ans << '\n';
     }
+
     return 0;
 }

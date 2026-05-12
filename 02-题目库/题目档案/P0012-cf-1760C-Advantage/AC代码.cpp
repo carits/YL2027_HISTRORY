@@ -1,21 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int T;
     cin >> T;
-    while(T--){
+    while (T--) {
         int n;
         cin >> n;
         vector<int> a(n), b;
-        for(int &x: a) cin >> x;
+
+        for (int i = 0; i < n; i++) cin >> a[i];
         b = a;
         sort(b.begin(), b.end());
-        int mx = b[n - 1], sec = b[n - 2];
-        for(int x: a){
-            if(x == mx) cout << x - sec << ' ';
-            else cout << x - mx << ' ';
+
+        int mx = b[n - 1], se = b[n - 2];
+
+        for (int i = 0; i < n; i++) {
+            if (a[i] == mx) cout << a[i] - se;
+            else cout << a[i] - mx;
+            cout << " \n"[i == n - 1];
         }
-        cout << "\n";
     }
+
     return 0;
 }

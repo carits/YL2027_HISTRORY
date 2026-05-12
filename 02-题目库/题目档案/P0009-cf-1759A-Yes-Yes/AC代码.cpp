@@ -1,14 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    string pat;
+    for (int i = 0; i < 30; i++) pat += "Yes";
+
     int T;
     cin >> T;
-    string base;
-    for(int i = 0; i < 20; i++) base += "Yes";
-    while(T--){
+    while (T--) {
         string s;
         cin >> s;
-        cout << (base.find(s) != string::npos ? "YES" : "NO") << "\n";
+        cout << (pat.find(s) != string::npos ? "YES" : "NO") << '\n';
     }
+
     return 0;
 }

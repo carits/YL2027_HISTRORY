@@ -1,17 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
-    int n, x, y;
+
+struct Carpet {
+    int x, y, a, b;
+};
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
     cin >> n;
-    vector<int> a(n), b(n), g(n), k(n);
-    for(int i = 0; i < n; i++) cin >> a[i] >> b[i] >> g[i] >> k[i];
-    cin >> x >> y;
-    for(int i = n - 1; i >= 0; i--){
-        if(a[i] <= x && x <= a[i] + g[i] && b[i] <= y && y <= b[i] + k[i]){
-            cout << i + 1 << "\n";
+    vector<Carpet> c(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> c[i].x >> c[i].y >> c[i].a >> c[i].b;
+    }
+
+    int X, Y;
+    cin >> X >> Y;
+
+    for (int i = n - 1; i >= 0; i--) {
+        if (c[i].x <= X && X <= c[i].x + c[i].a &&
+            c[i].y <= Y && Y <= c[i].y + c[i].b) {
+            cout << i + 1 << '\n';
             return 0;
         }
     }
-    cout << -1 << "\n";
+
+    cout << -1 << '\n';
     return 0;
 }
