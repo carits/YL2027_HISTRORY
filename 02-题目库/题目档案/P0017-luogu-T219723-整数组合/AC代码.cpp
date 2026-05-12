@@ -1,6 +1,3 @@
-// P0017 洛谷 T219723 整数组合
-// 当前题目需要根据完整题面补充 AC 代码。
-// 已知信息：主标签 枚举，子标签 组合枚举, 多重循环，训练目标 训练枚举对象和循环范围设计。
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,7 +5,17 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    // TODO: 根据题面补充实现
-
+    int n, a, b, c;
+    cin >> n >> a >> b >> c;
+    const int inf = 1e9;
+    vector<int> dp(n + 1, inf);
+    dp[0] = 0;
+    for (int i = 0; i <= n; i++) {
+        if (dp[i] == inf) continue;
+        if (i + a <= n) dp[i + a] = min(dp[i + a], dp[i] + 1);
+        if (i + b <= n) dp[i + b] = min(dp[i + b], dp[i] + 1);
+        if (i + c <= n) dp[i + c] = min(dp[i + c], dp[i] + 1);
+    }
+    cout << (dp[n] == inf ? -1 : dp[n]) << '\n';
     return 0;
 }
