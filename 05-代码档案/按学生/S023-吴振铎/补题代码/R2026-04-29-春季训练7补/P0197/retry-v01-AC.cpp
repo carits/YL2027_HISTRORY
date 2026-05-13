@@ -1,0 +1,1 @@
+#include<bits/stdc++.h>using namespace std;int main(){    int t,x;    cin>>t;    x=t;    while(t--){        int n,b[200005];        cin>>n;        for(int i=1;i<=n;i++)        {            cin>>b[i];        }        for(int i=2;i<=n;i++)cout<<b[i]<<" ";        cout<<b[1]<<"\n";    }    return 0;}

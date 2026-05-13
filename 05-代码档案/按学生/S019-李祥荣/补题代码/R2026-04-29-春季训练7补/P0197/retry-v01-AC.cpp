@@ -1,0 +1,1 @@
+#include<bits/stdc++.h>using namespace std;int t,n,p[200010],ans=0;int main(){	cin>>t;	while(t--){		cin>>n;		for(int i=1;i<=n;i++) cin>>p[i];		for(int i=1;i<=n;i++) cout<<p[1+i%n]<<' ';		cout<<endl;	}		return 0;}

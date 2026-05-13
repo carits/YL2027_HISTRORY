@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+int a[100005] , b[1000005];
+int n , k;
+bool sf (int p)
+{
+    int cnt=0;
+    for (int i=1;i<=n;i++)
+    {
+        cnt+=(a[i]/p)*(b[i]/p);
+    }
+    if (cnt>=k) return 1;
+    return 0;
+}
+int main ( )
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cin >> n >> k;
+    for (int i=1;i<=n;i++)
+    {
+        cin >> a[i] >> b[i];
+    }
+    int l=1 , r=100000;
+    while (l<r)
+    {
+        int mid=(l+r+1)/2;
+        if (sf (mid)==1)
+        {
+            l=mid;
+        }
+        else
+        {
+            r=mid-1;
+        }
+    }
+    cout << l;
+    return 0;
+}

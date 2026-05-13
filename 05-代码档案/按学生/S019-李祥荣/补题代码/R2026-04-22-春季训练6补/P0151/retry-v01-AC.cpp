@@ -1,0 +1,1 @@
+#include<bits/stdc++.h>using namespace std;int n,a[200010],ans=0;int main(){	cin>>n;	for(int i=1;i<=n;i++) cin>>a[i];	int x=1;	for(int i=2;i<=n;i++){		if(a[i]<=a[i-1]*2) x++;		else{			ans=max(ans,x);			x=1;		}	}	ans=max(ans,x);	cout<<ans;	return 0;}

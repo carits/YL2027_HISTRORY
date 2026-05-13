@@ -1,0 +1,1 @@
+#include <bits/stdc++.h>using namespace std;int n,t,a,b;void dfs(int i){    if(i>n){        return;    }    for(int i=1;i<=n;i++){            }}int main (){    cin>>t;    while(t--){        cin>>n>>b;        for(int i=2;i<=n;i++){            cin>>a;            cout<<a<<" ";        }        cout<<b<<endl;    }    return 0;}

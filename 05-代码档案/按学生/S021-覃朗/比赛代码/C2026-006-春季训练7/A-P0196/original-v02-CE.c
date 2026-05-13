@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+int T,n,m,a[55],vis[55];
+void dfs(int step)
+{
+    if(a[step-1]==a[step-2]+a[step-3] and a[step-1]!=0)
+    {
+        return;
+    }
+    if(m==0)
+    {
+        return;
+    }
+    if(step>n)
+    {
+        m--;
+        for(int i=1;i<step;i++)
+        {
+            cout<<a[i]<<' ';
+        }
+        cout<<endl;
+    }
+    for(int i=1;i<=n;i++)
+    {
+        if(vis[i]==1)
+        {
+            continue;
+        }
+        
+        a[step]=i;
+        vis[i]=1;
+        dfs(step+1);
+        vis[i]=0;
+    }
+}
+int main()
+{
+	cin>>T;
+	while(T--)
+	{
+	    cin>>n;
+	    m=n;
+	    dfs(1);
+	}
+	return 0;
+}

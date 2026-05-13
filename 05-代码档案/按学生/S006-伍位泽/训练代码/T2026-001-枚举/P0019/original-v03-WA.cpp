@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int a[100005];
+int main ( )
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    long long n , t;
+    cin >> n >> t;
+    long long maxn=0;
+    for (int i=1;i<=n;i++)
+    {
+        cin >> a[i];
+    }
+    for (int i=1;i<=n;i++)
+    {
+        for (int j=i+1;j<=n;j++)
+        {
+            if (a[i]+a[j]<=t)
+            {
+                maxn=a[i]+a[j];
+            }
+        }
+    }
+    cout << maxn;
+    return 0;
+}
